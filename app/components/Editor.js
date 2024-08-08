@@ -19,7 +19,7 @@ const Editor = () => {
       const div = document.createElement('div');
       div.innerHTML = content;
       const plainText = div.textContent || div.innerText || '';
-      const truncatedText = plainText.trim().slice(0, 140) + '...';
+      const truncatedText = plainText.trim().slice(0, 150) + '...';
       setExcerpt(truncatedText);
     };
 
@@ -75,7 +75,7 @@ ${content}`;
         />
       </div>
       <div className="bg-gray-100 p-4 rounded-md mb-5">
-        <h3 className="font-semibold mb-2">Excerpt Preview (first 140 characters):</h3>
+        <h3 className="font-semibold mb-2">Excerpt Preview (first 150 characters):</h3>
         <p>{excerpt}</p>
       </div>
       <button 
