@@ -7,7 +7,7 @@ const inter = Montserrat({ subsets: ["latin"] });
 export const metadata = {
   title: "Write Down",
   description: "Simple blog, great content!",
-  icon: "/markdown-logo.png"
+  icon: "../markdown-logo.png"
 };
 
 export default function RootLayout({ children }) {
