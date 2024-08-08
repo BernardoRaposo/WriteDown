@@ -80,7 +80,7 @@ ${content}`;
       </div>
       <button 
         onClick={handleDownload}
-        className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors duration-300 w-full md:w-auto"
+        className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors duration-300 w-full md:w-auto mb-10"
       >
         Download as Markdown
       </button>
