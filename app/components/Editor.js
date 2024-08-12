@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
@@ -6,6 +6,10 @@ import 'react-quill/dist/quill.snow.css';
 import { saveAs } from 'file-saver';
 
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
+
+const sanitizeFilename = (filename) => {
+  return filename.replace(/[^a-z0-9]/gi, '_').toLowerCase();
+};
 
 const Editor = () => {
   const [title, setTitle] = useState('');
@@ -27,6 +31,7 @@ const Editor = () => {
   }, [content]);
 
   const handleDownload = () => {
+    const sanitizedTitle = sanitizeFilename(title || 'untitled_post');
     const fullContent = `---
 title: "${title}"
 date: "${date}"
@@ -36,7 +41,7 @@ author: "${author}"
 
 ${content}`;
     const blob = new Blob([fullContent], { type: 'text/markdown;charset=utf-8' });
-    saveAs(blob, `${title}-blog-post.md`);
+    saveAs(blob, `${sanitizedTitle}-blog-post.md`);
   };
 
   return (
